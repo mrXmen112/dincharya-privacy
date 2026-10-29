@@ -85,6 +85,25 @@
     font-size:13px;color:var(--muted);
   }
   footer p{margin:0 0 6px}
+  @media (max-width:560px){
+    .table-scroll{overflow:visible}
+    table{min-width:0;font-size:14.5px}
+    thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+    tbody tr{
+      display:block;background:var(--card);border:1px solid var(--line);
+      border-radius:12px;margin:0 0 12px;padding:0 0 4px;overflow:hidden;
+    }
+    tbody td{display:block;border:0;padding:8px 14px;white-space:normal}
+    tbody td:first-child{
+      background:#fdf1e4;padding:10px 14px;white-space:normal;
+      border-bottom:1px solid var(--line);margin:0 0 4px;
+    }
+    tbody td:not(:first-child)::before{
+      content:attr(data-label);display:block;
+      font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;
+      color:var(--saffron);margin:0 0 1px;
+    }
+  }
   @media (max-width:480px){
     .wrap{padding:26px 16px 60px}
     body{font-size:15.5px}
@@ -205,25 +224,25 @@
         <tbody>
           <tr>
             <td>Google AdMob</td>
-            <td>Advertising ID, IP address, device/app info, ad interactions; consent choices via Google’s
+            <td data-label="What it receives">Advertising ID, IP address, device/app info, ad interactions; consent choices via Google’s
               UMP consent form.</td>
-            <td>Showing and measuring ads.</td>
+            <td data-label="Purpose">Showing and measuring ads.</td>
           </tr>
           <tr>
             <td>Supabase (Storage)</td>
-            <td>Technical request data (IP address, user-agent, requested file) in server logs. No account or
+            <td data-label="What it receives">Technical request data (IP address, user-agent, requested file) in server logs. No account or
               personal data.</td>
-            <td>Hosting public audio, wallpaper and image files.</td>
+            <td data-label="Purpose">Hosting public audio, wallpaper and image files.</td>
           </tr>
           <tr>
             <td>YouTube (Google)</td>
-            <td>Only if you tap play on a video: IP address, device/browser info, and YouTube cookies.</td>
-            <td>Playing video content.</td>
+            <td data-label="What it receives">Only if you tap play on a video: IP address, device/browser info, and YouTube cookies.</td>
+            <td data-label="Purpose">Playing video content.</td>
           </tr>
           <tr>
             <td>Your device &amp; OS</td>
-            <td>Nothing leaves the device.</td>
-            <td>Wallpaper manager, notifications, share sheet, filesystem cache, vibration.</td>
+            <td data-label="What it receives">Nothing leaves the device.</td>
+            <td data-label="Purpose">Wallpaper manager, notifications, share sheet, filesystem cache, vibration.</td>
           </tr>
         </tbody>
       </table>
@@ -251,24 +270,24 @@
           <tr><th scope="col">Permission</th><th scope="col">Why the app needs it</th></tr>
         </thead>
         <tbody>
-          <tr><td>INTERNET</td><td>Downloading audio, wallpapers, temple images and loading ads and
+          <tr><td>INTERNET</td><td data-label="Why the app needs it">Downloading audio, wallpapers, temple images and loading ads and
             YouTube videos.</td></tr>
-          <tr><td>ACCESS_NETWORK_STATE</td><td>Checking whether a connection exists before loading media or
+          <tr><td>ACCESS_NETWORK_STATE</td><td data-label="Why the app needs it">Checking whether a connection exists before loading media or
             requesting an ad, so the app degrades gracefully offline.</td></tr>
-          <tr><td>SET_WALLPAPER</td><td>Applying a wallpaper you choose to your home/lock screen.</td></tr>
-          <tr><td>WRITE_EXTERNAL_STORAGE</td><td>Only on Android 9 and older: saving a wallpaper image when
+          <tr><td>SET_WALLPAPER</td><td data-label="Why the app needs it">Applying a wallpaper you choose to your home/lock screen.</td></tr>
+          <tr><td>WRITE_EXTERNAL_STORAGE</td><td data-label="Why the app needs it">Only on Android 9 and older: saving a wallpaper image when
             you choose to save it. Not requested on Android 10+.</td></tr>
-          <tr><td>POST_NOTIFICATIONS</td><td>The optional daily reminders (darshan, aarti, vrat, festival) that
+          <tr><td>POST_NOTIFICATIONS</td><td data-label="Why the app needs it">The optional daily reminders (darshan, aarti, vrat, festival) that
             you can switch off in Settings.</td></tr>
-          <tr><td>RECEIVE_BOOT_COMPLETED</td><td>Restoring your scheduled reminders after the phone
+          <tr><td>RECEIVE_BOOT_COMPLETED</td><td data-label="Why the app needs it">Restoring your scheduled reminders after the phone
             restarts.</td></tr>
-          <tr><td>WAKE_LOCK</td><td>Delivering a scheduled reminder or finishing an audio download while the
+          <tr><td>WAKE_LOCK</td><td data-label="Why the app needs it">Delivering a scheduled reminder or finishing an audio download while the
             screen is off.</td></tr>
-          <tr><td>VIBRATE</td><td>Short haptic feedback on taps and reminder alerts.</td></tr>
-          <tr><td>FOREGROUND_SERVICE</td><td>Background work needed to deliver notifications and ads
+          <tr><td>VIBRATE</td><td data-label="Why the app needs it">Short haptic feedback on taps and reminder alerts.</td></tr>
+          <tr><td>FOREGROUND_SERVICE</td><td data-label="Why the app needs it">Background work needed to deliver notifications and ads
             reliably.</td></tr>
           <tr><td>AD_ID, ACCESS_ADSERVICES_AD_ID, ACCESS_ADSERVICES_ATTRIBUTION,
-            ACCESS_ADSERVICES_TOPICS</td><td>Required by Google’s Mobile Ads SDK to read the advertising ID and
+            ACCESS_ADSERVICES_TOPICS</td><td data-label="Why the app needs it">Required by Google’s Mobile Ads SDK to read the advertising ID and
             ad-services signals for ads and ad measurement.</td></tr>
         </tbody>
       </table>
